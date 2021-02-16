@@ -50,13 +50,13 @@ public class databaseTest {
 //        user uif=new user(3,"ZJZ");
 //        uop.insert(uif);
 //        System.out.println(uop.selectUserByUserID(1).getUserNickname());
-//        roomOperator rop=new roomOperator();
-//        room room=new room(0,2, 113.332264,23.156206,113.332264,23.156206,"A","B","1");
+        roomOperator rop=new roomOperator();
+        room room=new room(0,2, 113.332264,23.156206,113.332264,23.156206,"A","B","1");
+        rop.insert(room);
 //        rop.insert(room);
 //        rop.insert(room);
-//        rop.insert(room);
-//        Double temp=rop.selectRoomByRoomID(2).getDepartureLat();
-//        System.out.println(temp);
+        int temp=rop.selectRoomByPosition(113.332264,23.156206,113.332264,23.156206).getRoomID();
+        System.out.println(temp);
 //        orderOperator oop=new orderOperator();
 //        order order=new order(0,1,"T",1.1,1.2,1.3,1.4,"A","B",1);
 //        oop.insert(order);
@@ -64,15 +64,15 @@ public class databaseTest {
 //        oop.insert(order);
 
 //        System.out.println(oop.selectOrderByOrderID(2).getRoomID());
-        messageOperator mop = new messageOperator();
-        message m1=new message(0,1,1,"ZJZ","A","1");
-        message m2=new message(0,1,2,"WZH","B","1");
-        mop.insert(m1);
-        mop.insert(m2);
-        Vector<message> h=mop.selectHistoryByRoomID(1);
-        for (message m:h){
-            System.out.println(m.getContent());
-        }
+//        messageOperator mop = new messageOperator();
+//        message m1=new message(0,1,1,"ZJZ","A","1");
+//        message m2=new message(0,1,2,"WZH","B","1");
+//        mop.insert(m1);
+//        mop.insert(m2);
+//        Vector<message> h=mop.selectHistoryByRoomID(1);
+//        for (message m:h){
+//            System.out.println(m.getContent());
+//        }
     }
 
 }

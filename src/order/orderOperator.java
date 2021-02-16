@@ -61,7 +61,7 @@ public class orderOperator {
             while (resultSet.next()) {
                 order.setOrderID(OrderID);
                 order.setDepartureLon(resultSet.getDouble("DepartureLon"));
-                order.setDepartureLat(resultSet.getDouble("DepartureLon"));
+                order.setDepartureLat(resultSet.getDouble("DepartureLat"));
                 order.setDestinationLon(resultSet.getDouble("DestinationLon"));
                 order.setDestinationLat(resultSet.getDouble("DestinationLat"));
                 order.setDeparture(resultSet.getString("Departure"));
