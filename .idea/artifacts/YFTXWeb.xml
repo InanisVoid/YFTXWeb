@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="YFTXWeb">
+    <output-path>$PROJECT_DIR$/out/artifacts/autocatalog</output-path>
+    <root id="archive" name="YFTXWeb.war">
+      <element id="artifact" artifact-name="YFTXWeb:war exploded" />
+    </root>
+  </artifact>
+</component>
