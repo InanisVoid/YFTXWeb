@@ -164,6 +164,7 @@ public class roomOperator {
 
 
             resultSet = ps.executeQuery();
+            room.setRoomID(0);
             while (resultSet.next()) {
                 room.setRoomID(resultSet.getInt("RoomID"));
                 room.setMemberNum(resultSet.getInt("MemberNum"));

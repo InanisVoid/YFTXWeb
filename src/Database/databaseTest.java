@@ -1,10 +1,8 @@
 package Database;
 import java.sql.*;
-import user.*;
+
 import room.*;
-import order.*;
-import message.*;
-import java.util.Vector;
+
 public class databaseTest {
     static databaseConnect dbc=new databaseConnect();
     static Statement statement=null;
@@ -52,7 +50,7 @@ public class databaseTest {
 //        System.out.println(uop.selectUserByUserID(1).getUserNickname());
         roomOperator rop=new roomOperator();
         room room=new room(0,2, 113.332264,23.156206,113.332264,23.156206,"A","B","1");
-        rop.insert(room);
+//        rop.insert(room);
 //        rop.insert(room);
 //        rop.insert(room);
         int temp=rop.selectRoomByPosition(113.332264,23.156206,113.332264,23.156206).getRoomID();

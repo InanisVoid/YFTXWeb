@@ -76,35 +76,35 @@
 
 ## Login-Send:
 
-UserID:
+UserID: Int
 
-UserNickname：
+UserNickname：String
 
 ## Book-Send：
 
 ​	UserID: 	
 
-​	Time:
+​	Time:  String
 
-​	DepartureLon:
+​	DepartureLon: Double
 
-​	DepartureLat:
+​	DepartureLat: Double
 
-​	DestinationLon:
+​	DestinationLon: Double
 
-​	DestinationLat:
+​	DestinationLat: Double
 
 ## Order-Send:
 
-UserID:
+UserID: Int
 
 ## Order-Get:
 
 #####  	订单: 
 
-​		OrderID; Departure; Destination; Time ; RoomID:
+​		OrderID(Int); Departure(String); Destination(String); Time ; RoomID(Int):
 
-​	Orders: [order1,order2,...]
+​	~~Orders:~~ [order1,order2,...]
 
 ## Choose-Send:
 
@@ -118,7 +118,7 @@ UserID:
 
 ##### 		History: [{}，{}，{}]
 
-​		{} Time: ; UserID: ; UserNickname: ; Content: ; 
+​		{} Time: ; UserID: ; UserNickname: ; Content: String; 
 
 ##### 		Room：{}
 
