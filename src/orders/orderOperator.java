@@ -146,4 +146,53 @@ public class orderOperator {
         }
         return allOrder;
     }
+
+    public Vector<orders> selectOrderByRoomID(int RoomID){
+        Vector<orders> allOrder=new Vector<orders>();
+        try {
+            connection = dbc.dbConnect();
+            Statement statement = connection.createStatement();
+            String sql = "select * from orders where RoomID = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, RoomID);
+            resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                orders orders=new orders();
+                orders.setOrderID(resultSet.getInt("OrderID"));
+                orders.setDepartureLon(resultSet.getDouble("DepartureLon"));
+                orders.setDepartureLat(resultSet.getDouble("DepartureLat"));
+                orders.setDestinationLon(resultSet.getDouble("DestinationLon"));
+                orders.setDestinationLat(resultSet.getDouble("DestinationLat"));
+                orders.setDeparture(resultSet.getString("Departure"));
+                orders.setDestination(resultSet.getString("Destination"));
+                orders.setTime(resultSet.getString("Time"));
+                orders.setRoomID(resultSet.getInt("RoomID"));
+                orders.setUserID(resultSet.getInt("UserID"));
+                allOrder.addElement(orders);
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                    resultSet = null;
+                }
+                if (statement != null) {
+                    statement.close();
+                    resultSet = null;
+                }
+                if (connection != null) {
+                    connection.close();
+                    connection = null;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return allOrder;
+    }
 }
