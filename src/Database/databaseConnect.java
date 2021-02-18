@@ -5,7 +5,7 @@ public class databaseConnect {
     Connection connect = null;
     public Connection dbConnect() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/yftx";
+        String url = "jdbc:mysql://localhost:3306/yftx?characterEncoding=utf8";
         connect = DriverManager.getConnection(url,"root","123456");
         return connect;
     }

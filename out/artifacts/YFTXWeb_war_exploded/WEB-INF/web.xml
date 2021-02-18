@@ -45,6 +45,88 @@
         <url-pattern>/WXTest</url-pattern>
     </servlet-mapping>
 
+    <!--Login-->
+    <servlet>
+        <servlet-name>login</servlet-name>
+        <!-- servlet的类全名： 包名+简单类名 -->
+        <servlet-class>login.login</servlet-class>
+    </servlet>
+    <!-- servlet的映射配置 -->
+    <servlet-mapping>
+        <!-- servlet的内部名称，一定要和上面的内部名称保持一致！！ -->
+        <servlet-name>login</servlet-name>
+        <!-- servlet的映射路径（访问servlet的名称） -->
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
 
+    <!--Book-->
+    <servlet>
+        <servlet-name>book</servlet-name>
+        <!-- servlet的类全名： 包名+简单类名 -->
+        <servlet-class>book.book</servlet-class>
+    </servlet>
+    <!-- servlet的映射配置 -->
+    <servlet-mapping>
+        <!-- servlet的内部名称，一定要和上面的内部名称保持一致！！ -->
+        <servlet-name>book</servlet-name>
+        <!-- servlet的映射路径（访问servlet的名称） -->
+        <url-pattern>/book</url-pattern>
+    </servlet-mapping>
+
+    <!--Order-->
+    <servlet>
+        <servlet-name>order</servlet-name>
+        <!-- servlet的类全名： 包名+简单类名 -->
+        <servlet-class>order.order</servlet-class>
+    </servlet>
+    <!-- servlet的映射配置 -->
+    <servlet-mapping>
+        <!-- servlet的内部名称，一定要和上面的内部名称保持一致！！ -->
+        <servlet-name>order</servlet-name>
+        <!-- servlet的映射路径（访问servlet的名称） -->
+        <url-pattern>/order</url-pattern>
+    </servlet-mapping>
+
+    <!--Choose-->
+    <servlet>
+        <servlet-name>choose</servlet-name>
+        <!-- servlet的类全名： 包名+简单类名 -->
+        <servlet-class>choose.choose</servlet-class>
+    </servlet>
+    <!-- servlet的映射配置 -->
+    <servlet-mapping>
+        <!-- servlet的内部名称，一定要和上面的内部名称保持一致！！ -->
+        <servlet-name>choose</servlet-name>
+        <!-- servlet的映射路径（访问servlet的名称） -->
+        <url-pattern>/choose</url-pattern>
+    </servlet-mapping>
+
+    <!--Chatroom-->
+    <servlet>
+        <servlet-name>chatroom</servlet-name>
+        <!-- servlet的类全名： 包名+简单类名 -->
+        <servlet-class>chatroom.chatroom</servlet-class>
+    </servlet>
+    <!-- servlet的映射配置 -->
+    <servlet-mapping>
+        <!-- servlet的内部名称，一定要和上面的内部名称保持一致！！ -->
+        <servlet-name>chatroom</servlet-name>
+        <!-- servlet的映射路径（访问servlet的名称） -->
+        <url-pattern>/chatroom</url-pattern>
+    </servlet-mapping>
+
+    <!--Chatroom-->
+    <servlet>
+        <servlet-name>message</servlet-name>
+        <!-- servlet的类全名： 包名+简单类名 -->
+        <servlet-class>messages.messages</servlet-class>
+    </servlet>
+    <!-- servlet的映射配置 -->
+    <servlet-mapping>
+        <!-- servlet的内部名称，一定要和上面的内部名称保持一致！！ -->
+        <servlet-name>message</servlet-name>
+        <!-- servlet的映射路径（访问servlet的名称） -->
+        <url-pattern>/message</url-pattern>
+    </servlet-mapping>
 
 </web-app>

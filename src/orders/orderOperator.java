@@ -22,9 +22,12 @@ public class orderOperator {
             ps.setDouble(4, orders.getDepartureLat());
             ps.setDouble(5, orders.getDestinationLon());
             ps.setDouble(6, orders.getDestinationLat());
+            System.out.println("DepartureLon"+orders.getDeparture());
+
             ps.setString(7, orders.getDeparture());
             ps.setString(8, orders.getDestination());
             ps.setInt(9, orders.getRoomID());
+            System.out.println(ps.toString());
             ps.execute();
 
         } catch (ClassNotFoundException e) {

@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 import net.sf.json.JSONObject;
@@ -14,13 +15,20 @@ public class LocationUtil {
      */
     public LocationUtil(){}
 
-    public static String getPosition(double lon, double lat) {
+    public static String getPosition(double lat, double lon) {
         String ak= "wKUfa4Zk2QZfY767GfmXWMGjpzm8DoKQ";
-        String url="http://api.map.baidu.com/reverse_geocoding/v3/?ak="+ak+"&output=json&coordtype=wgs84ll&location="+ lon +","+ lat;
+        String url="http://api.map.baidu.com/reverse_geocoding/v3/?ak="+ak+"&output=json&coordtype=wgs84ll&location="+ lat +","+ lon;
+
 //        JSONObject json=new JSONObject();
-        String result= JSONObject.fromObject(sendGet(url)).getString("result");
+        String temp=sendGet(url);
+        System.out.println(temp);
+        String result= JSONObject.fromObject(temp).getString("result");
+
+//        System.out.println("Test"+JSONObject.fromObject(result).getString("formatted_address"));
         return JSONObject.fromObject(result).getString("formatted_address");
     }
+
+
     public static String sendGet(String url) {
         String result = "";
         BufferedReader in = null;
@@ -42,8 +50,7 @@ public class LocationUtil {
                 System.out.println(key + "--->" + map.get(key));
             }
             // 定义 BufferedReader输入流来读取URL的响应
-            in = new BufferedReader(new InputStreamReader(
-                    connection.getInputStream()));
+            in = new BufferedReader(new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8));
             String line;
             while ((line = in.readLine()) != null) {
                 result += line;
@@ -68,6 +75,9 @@ public class LocationUtil {
     public static void main(String[] args)
     {
         LocationUtil test=new LocationUtil();
-        System.out.println(getPosition(31.225696563611,121.49884033194));
+        String res = getPosition(23.156206,113.332264);
+        System.out.println(res);
+        byte[] utf8=res.getBytes(StandardCharsets.UTF_8);
+        System.out.println(new String(utf8, StandardCharsets.UTF_8));
     }
 }

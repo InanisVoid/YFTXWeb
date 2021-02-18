@@ -29,7 +29,6 @@ public class choose extends HttpServlet{
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
 
-        int OrderID=Integer.parseInt(request.getParameter("OrderID"));
         int RoomID=Integer.parseInt(request.getParameter("RoomID"));
 
 

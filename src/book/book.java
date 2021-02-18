@@ -15,6 +15,7 @@ import room.roomOperator;
 import tools.LocationUtil;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @WebServlet(name="book")
 public class book extends HttpServlet{
@@ -31,19 +32,33 @@ public class book extends HttpServlet{
         double DestinationLon =Double.parseDouble(request.getParameter("DestinationLon"));
         double DestinationLat =Double.parseDouble(request.getParameter("DestinationLat"));
 
-        String Departure = LocationUtil.getPosition(DepartureLon,DepartureLat);
-        String Destination = LocationUtil.getPosition(DestinationLon,DestinationLat);
+        String Departure = LocationUtil.getPosition(DepartureLat,DepartureLon);
+
+
+        System.out.println(LocationUtil.getPosition(DepartureLat,DepartureLon));
+        String Destination = LocationUtil.getPosition(DestinationLat,DepartureLon);
+
+        System.out.println("Departure: " + Departure);
+        System.out.println("Destination: "+Destination);
 
         roomOperator rop=new roomOperator();
         room rTemp=rop.selectRoomByPosition(DepartureLon,DepartureLat,DestinationLon,DestinationLat);
         if (rTemp.getRoomID()==0){
+            rTemp = new room(0,1,DepartureLon,DepartureLat,DestinationLon,DestinationLat,Departure,Destination,Time);
             rop.insert(rTemp);
             rTemp=rop.selectRoomByPosition(DepartureLon,DepartureLat,DestinationLon,DestinationLat);
         }
-
+        else{
+            rTemp.setMemberNum(rTemp.getMemberNum()+1);
+            rop.updateRoomInfo(rTemp);
+        }
+        System.out.println(rTemp.getRoomID());
         orderOperator db = new orderOperator();
         orders uio=new orders(0,UserID,Time,DepartureLon,DepartureLat,DestinationLon,DestinationLat,Departure,Destination,rTemp.getRoomID());
+        db.insert(uio);
 
+//        response.setCharacterEncoding("utf-8");
+        response.getWriter().println(Departure);
 //        JSONObject json=new JSONObject();
 //        db.insert(uio);
 //        json.put("userID",userID);
