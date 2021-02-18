@@ -120,9 +120,9 @@ UserID: Int
 
 ​		{} Time: ; UserID: ; UserNickname: ; Content: String; 
 
-##### 		Room：{}
+##### 		Room：~~{}~~
 
-​		{} Member: [UserID1, UserID2,...]; 
+​		~~{} Member:~~ [UserID1, UserID2,...]; 
 
 ## Chatroom-Send:
 

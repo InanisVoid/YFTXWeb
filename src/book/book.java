@@ -58,7 +58,7 @@ public class book extends HttpServlet{
         db.insert(uio);
 
 //        response.setCharacterEncoding("utf-8");
-        response.getWriter().println(Departure);
+//        response.getWriter().println(Departure);
 //        JSONObject json=new JSONObject();
 //        db.insert(uio);
 //        json.put("userID",userID);
